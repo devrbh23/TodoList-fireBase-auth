@@ -17,7 +17,6 @@ class Login extends Component {
   handleChange(e) {
     this.setState({[e.target.name]: e.target.value});
   }
-
   login(e) {
     fire
       .auth()
