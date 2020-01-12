@@ -1,22 +1,145 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
+.container {
+  height: 100vh;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.signUpForm {
+  width: 400px;
+  background: rgb(133, 179, 133);
+  margin: 2px;
+  border-radius: 4px;
+
+
+}
+
+.form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
+  height: 250px;
 }
 
-.App-link {
-  color: #09d3ac;
+.input {
+  width: 90%;
+  height: 25px;
+  font-size: 1.3em;
+  font-family: 'Droid Sans',
+    sans-serif;
+}
+
+.lsButton {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login {
+  border: none;
+  margin: 4px;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 1.3em;
+  font-family: 'Droid Sans',
+    sans-serif;
+  background-color: #4d4179;
+  color: #fff;
+}
+
+.para {
+  margin-bottom: none;
+  font-size: 1.3em;
+}
+
+ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.noteList {
+  display: flex;
+  justify-content: space-between;
+  background: gray;
+  width: 80%;
+  margin: 0 0px 2px 30px;
+
+}
+
+.delBut {
+  display: block;
+  background: red;
+  height: 15px;
+  width: 15px;
+  margin: 2px;
+  padding: 0 0 6px 6px;
+  cursor: pointer;
+
+}
+
+.noteInput {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  width: 70%;
+  border: none;
+  margin-bottom: 4px;
+  font-size: 1.3em;
+  padding-left: 20px;
+  margin-left: 4px;
+  font-family: 'Droid Sans', sans-serif;
+  background-color: rgba(34, 49, 63, 0.8);
+  color: #fff;
+
+}
+
+
+.noteButton {
+  border: none;
+  margin-bottom: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+
+  font-size: 1.3em;
+  font-family: 'Droid Sans', sans-serif;
+  background-color: #019875;
+  color: #fff;
+
+}
+
+.logot {
+  text-align: right;
+}
+
+.logout {
+  border: none;
+  margin: 4px;
+  border-radius: 4px;
+
+
+  font-size: 1.3em;
+  font-family: 'Droid Sans',
+    sans-serif;
+  background-color: #4d4179;
+  color: #fff;
+
+}
+
+.home {
+  width: 60%;
+  text-align: center;
+  background-color: rgb(219, 219, 231);
+}
+
+.title {
+  background: #d2d6d5;
+  margin: 0px;
+}
+
+.userNotes {
+
+  background: inherit;
 }
