@@ -29,7 +29,7 @@ class Login extends Component {
 
     e.preventDefault();
   }
-
+  //signup
   signup(e) {
     e.preventDefault();
     fire
