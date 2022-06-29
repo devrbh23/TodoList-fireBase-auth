@@ -21,8 +21,10 @@ class Login extends Component {
     fire
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then(userCred => {})
-      .catch(error => {
+      .then((userCred) => {
+        console.log(userCred);
+      })
+      .catch((error) => {
         console.log(error);
       });
 
@@ -35,10 +37,10 @@ class Login extends Component {
       .auth()
       .createUserWithEmailAndPassword(this.state.email, this.state.password)
 
-      .then(u => {
+      .then((u) => {
         console.log(u);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   }

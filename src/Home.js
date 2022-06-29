@@ -1,18 +1,18 @@
-import React, {useState, useEffect} from 'react';
-import fire from './config/Config';
-import 'firebase/database';
+import React, { useState, useEffect } from "react";
+import fire from "./config/Config";
+import "firebase/database";
 
 function Home() {
   const [notesData, setNotesData] = useState([]);
   const [notes, setNotes] = useState({
-    note: '',
-    createdAt: '',
-    itemId: '',
+    note: "",
+    createdAt: "",
+    itemId: "",
   });
-  const input = e => {
-    setNotes({...notes, [e.target.name]: e.target.value});
+  const input = (e) => {
+    setNotes({ ...notes, [e.target.name]: e.target.value });
   };
-  const addNote = e => {
+  const addNote = (e) => {
     e.preventDefault();
     const uid = fire.auth().currentUser.uid;
     const reference = fire
@@ -32,25 +32,25 @@ function Home() {
       .catch();
     setNotes({
       ...notes,
-      note: '',
+      note: "",
       itemId: reference.key,
       createdAt: Date.now(),
     });
-    setNotesData([...notesData, {...notes}]);
+    setNotesData([...notesData, { ...notes }]);
 
     e.preventDefault();
   };
 
   const [userNotes, setUserNotes] = useState();
   useEffect(() => {
-    fire.auth().onAuthStateChanged(user => {
+    fire.auth().onAuthStateChanged((user) => {
       if (user) {
         const uid = user.uid;
         return fire
           .database()
           .ref()
           .child(uid)
-          .on('value', snap => {
+          .on("value", (snap) => {
             setUserNotes(snap.val());
           });
       } else {
@@ -66,12 +66,7 @@ function Home() {
   const deletes = (item, e) => {
     e.preventDefault();
     const uid = fire.auth().currentUser.uid;
-    fire
-      .database()
-      .ref()
-      .child(uid)
-      .child(item.itemId)
-      .remove();
+    fire.database().ref().child(uid).child(item.itemId).remove();
   };
 
   //
@@ -82,20 +77,15 @@ function Home() {
   //
 
   const edits = (item, e) => {
-    const notes = prompt('enter new note', '');
-    if (notes === null || notes === '') {
-      const ddd = 'no change';
+    const notes = prompt("enter new note", "");
+    if (notes === null || notes === "") {
+      const ddd = "no change";
       console.log(ddd);
     } else {
       const uid = fire.auth().currentUser.uid;
-      fire
-        .database()
-        .ref()
-        .child(uid)
-        .child(item.itemId)
-        .update({
-          notes: notes,
-        });
+      fire.database().ref().child(uid).child(item.itemId).update({
+        notes: notes,
+      });
     }
   };
 
@@ -115,26 +105,26 @@ function Home() {
           <input className="noteButton" type="submit" value="Add Note" />
         </form>
       </div>
-      {/* <div>
-        {notesData.map(item => (
+      <div>
+        {notesData.map((item) => (
           <ul className="noteList">
             <li>{item.note}</li>
-            <span className="delBut" onClick={e => deletes(item, e)}>
+            <span className="delBut" onClick={(e) => deletes(item, e)}>
               x
             </span>
           </ul>
         ))}
-      </div> */}
+      </div>
       <div className="userNotes">
         {userNotes ? (
-          Object.values(userNotes).map(item => (
+          Object.values(userNotes).map((item) => (
             <ul key={item.itemId} className="noteList">
               <li>{item.notes}</li>
               <div>
-                <span className="delBut" onClick={e => deletes(item, e)}>
+                <span className="delBut" onClick={(e) => deletes(item, e)}>
                   x
                 </span>
-                <span onClick={e => edits(item, e)}>edit</span>
+                <span onClick={(e) => edits(item, e)}>edit</span>
               </div>
             </ul>
           ))
